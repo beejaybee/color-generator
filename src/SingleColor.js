@@ -17,16 +17,14 @@ const SingleColor = ({rgb, weight, index, hexColor}) => {
   console.log(bcg); 
   const hexValue = `#${hexColor}`
 
-  const handleClick = () => {
-    setAlert(true);
-    navigator.clipboard.writeText(hexValue);
-  }
-
   return (
     <article 
     className={`color ${index > 9 && 'color-light'}`} 
     style={{backgroundColor: `rgb(${bcg})`}} 
-    onClick={handleClick}
+    onClick={() => {
+      setAlert(true);
+      navigator.clipboard.writeText(hexValue);
+    }}
     >
       
       <p className="percent-value"> {weight}% </p>
